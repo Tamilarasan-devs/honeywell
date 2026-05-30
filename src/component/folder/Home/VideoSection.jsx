@@ -3,9 +3,24 @@ import video from "../../../assets/video/video.mp4";
 
 export default function VideoSection() {
   return (
-    <div className="w-full overflow-hidden">
+    <div
+      style={{
+        marginTop: "80px",
+        width: "100%",
+        overflow: "hidden",
+        lineHeight: 0,
+        fontSize: 0,
+        background: "#FAF9F6",
+      }}
+    >
       <video
-        className="w-full h-auto max-h-screen object-contain"
+        style={{
+          display: "block",
+          width: "100%",
+          height: "auto",
+          background: "transparent",
+          verticalAlign: "bottom",
+        }}
         src={video}
         autoPlay
         muted

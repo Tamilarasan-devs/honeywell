@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import bgImage from "../../../assets/hw2.jpg";
+import bg from '../../../assets/img.jpg'
+import bg1 from '../../../assets/img1.jpg'
 
 export default function About() {
   const [visible, setVisible] = useState(false);
@@ -20,6 +22,21 @@ export default function About() {
         fontFamily: "'Cormorant Garamond', 'Georgia', serif",
       }}
     >
+      <div className="relative w-full flex items-center justify-center mt-24 px-6">
+        <div className="relative w-full overflow-hidden rounded-3xl shadow-xl">
+          <img
+            src={bg}
+            alt="bg"
+            className="w-full  "
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20">
+            <h2 className="text-6xl md:text-8xl font-bold text-black leading-none text-center drop-shadow-lg">
+              Honeywell <br />
+              <span className="text-black" style={{ fontStyle: "italic", fontWeight: "300" }}>Creation</span>
+            </h2>
+          </div>
+        </div>
+      </div>
       {/* Editorial & Avant-Garde CSS Styling */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap');
@@ -133,10 +150,10 @@ export default function About() {
       </div>
 
       <div className="relative z-10">
-        
+
         {/* ── STUNNING HERO VOGUE-STYLE LAYOUT ─────────────────── */}
-        <section className="relative flex flex-col items-center justify-center text-center px-6 pt-40 pb-28 md:pt-52 md:pb-36">
-          {/* Circular Luxury Spinning Seal Badge */}
+        {/* <section className="relative flex flex-col items-center justify-center text-center px-6 pt-40 pb-28 md:pt-52 md:pb-36">
+          Circular Luxury Spinning Seal Badge
           <div className="absolute top-12 right-8 md:right-24 hidden md:block w-28 h-28 pointer-events-none">
             <svg className="luxury-rotating-seal w-full h-full" viewBox="0 0 100 100">
               <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
@@ -147,32 +164,7 @@ export default function About() {
               </text>
             </svg>
           </div>
-
-          <div className={`fade-up-element ${visible ? "triggered" : ""}`}>
-            <span className="luxury-badge">Couture Craftsmanship</span>
-          </div>
-
-          <h1
-            className={`editorial-title text-[#1A1410] mt-10 mb-8 fade-up-element d-1 ${visible ? "triggered" : ""}`}
-            style={{ fontSize: "clamp(64px, 12vw, 150px)" }}
-          >
-            Honeywell
-            <br />
-            <span className="gold-gradient" style={{ fontStyle: "italic", fontWeight: "300" }}>Creation</span>
-          </h1>
-
-          <div className="flex items-center justify-center gap-4 mb-8 fade-up-element d-2 ${visible ? 'triggered' : ''}">
-            <div className="w-12 h-px bg-[#C4A265]" />
-            <span className="outfit-font text-[#9E7A3B] text-xs font-semibold tracking-[0.3em] uppercase">Est. 2007</span>
-            <div className="w-12 h-px bg-[#C4A265]" />
-          </div>
-
-          <p
-            className={`outfit-font text-[#7A6B5A] text-sm md:text-base tracking-[0.45em] uppercase font-light max-w-xl leading-relaxed fade-up-element d-2 ${visible ? "triggered" : ""}`}
-          >
-            Sartorial Mastery & Industrial Precision
-          </p>
-        </section>
+        </section> */}
 
         {/* ── FASHION ROW METRICS WITH CONTINUOUS TOP/BOTTOM BORDERS ── */}
         <section className={`px-6 py-12 border-t border-b border-[#C4A265]/25 bg-white/30 backdrop-blur-sm fade-up-element d-3 ${visible ? "triggered" : ""}`}>
@@ -205,7 +197,7 @@ export default function About() {
                 <span className="fashion-accent-dot" />
                 <p className="fashion-label">Sartorial Narrative</p>
               </div>
-              
+
               <h2
                 className="editorial-title text-[#1A1410] leading-none"
                 style={{ fontSize: "clamp(48px, 8vw, 84px)" }}
@@ -213,7 +205,7 @@ export default function About() {
                 From 40 Machines<br />
                 <span className="gold-gradient" style={{ fontStyle: "italic" }}>to an Industry Icon</span>
               </h2>
-              
+
               <p className="font-serif text-[#3A332C] italic leading-[1.8]" style={{ fontSize: "clamp(20px, 2.4vw, 26px)" }}>
                 "We fuse automated high-speed layouts with artisan intuition — crafting not just products, but the infrastructure of global fashion."
               </p>
@@ -252,7 +244,7 @@ export default function About() {
                   </div>
                   <div className="col-span-9 space-y-2">
                     <h3 className="outfit-font text-[#1A1410] font-bold text-lg">{item.title}</h3>
-                    <p className="outfit-font text-[#7A6B5A] text-sm leading-relaxed font-light">{item.desc}</p>
+                    <p className="outfit-font text-[#7A6B5A] text-lg font-medium leading-relaxed font-light">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -262,17 +254,6 @@ export default function About() {
 
         {/* ── ASYMMETRICAL TIMELINE GRID (NO VERTICAL TIMELINE CARDS) ── */}
         <section className={`px-6 pb-36 max-w-6xl mx-auto fade-up-element d-4 ${visible ? "triggered" : ""}`}>
-          <div className="text-center mb-24">
-            <p className="fashion-label mb-4">Milestone Evolution</p>
-            <h2
-              className="editorial-title text-[#1A1410]"
-              style={{ fontSize: "clamp(48px, 8vw, 84px)" }}
-            >
-              The Chronology
-            </h2>
-            <div className="w-16 h-[2px] bg-[#C4A265] mx-auto mt-6" />
-          </div>
-
           {/* Asymmetrical Chronology Grid */}
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {[
@@ -295,7 +276,7 @@ export default function About() {
               <div key={i} className="space-y-4 pt-8 border-t border-[#C4A265]/40 hover:border-[#C4A265] transition-colors duration-500">
                 <span className="editorial-title text-[#C4A265] text-5xl md:text-6xl font-light italic leading-none">{m.year}</span>
                 <h3 className="outfit-font text-[#1A1410] font-bold text-lg mt-2">{m.title}</h3>
-                <p className="outfit-font text-[#7A6B5A] text-sm leading-relaxed font-light">{m.desc}</p>
+                <p className="outfit-font text-[#7A6B5A] text-lg font-medium leading-relaxed">{m.desc}</p>
               </div>
             ))}
           </div>

@@ -3,198 +3,249 @@ import { useEffect, useRef, useState } from "react";
 const CAPABILITIES = [
   {
     title: "Eco-Certified Production",
-    subtitle: "Sustainable Luxury",
-    description: "Operating with absolute respect for nature. We utilize 100% organic pigments, GOTS-certified fabrics, and closed-loop water treatment systems to protect our planet.",
-    icon: "🌱",
-    tags: ["GOTS Certified", "OEKO-TEX Standard", "Zero Waste Dyeing"],
-    accent: "#C4A265"
+    subtitle: "SUSTAINABILITY",
+    description:
+      "Operating with absolute respect for nature using organic pigments, responsible sourcing, and advanced water recycling systems.",
+    icon: "✦",
+    accent: "#C9A66B",
+    image: "https://imgs.search.brave.com/xxbV0L4v5bgGZFYH2WZxVRoEhOjLmFgkxt709tgJy5c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWNvbGFiZWwubmV0/L2ltYWdlcy9oYW5n/aS1lY28tbGFiZWwt/dXJ1bmxlcmluLW1l/dmN1dC1vbGR1Z3Ut/bmFzaWwtb2dyZW5p/bGlyLmpwZw",
   },
   {
     title: "Advanced CAD & Digital Fit",
-    subtitle: "Precision Engineering",
-    description: "Seamless pattern nesting and 3D digital draping ensure perfect tailoring before a single blade touches fabric — saving time, eliminating waste, and ensuring precise silhouettes.",
-    icon: "📐",
-    tags: ["3D Digital Draping", "Laser-Guided Nesting", "Precision Grading"],
-    accent: "#80C4BC"
+    subtitle: "PRECISION",
+    description:
+      "Digital pattern engineering and 3D draping technologies deliver flawless fitting and faster product development cycles.",
+    icon: "◈",
+    accent: "#9CB9B3",
+    image: "https://static.fibre2fashion.com//articleresources/images/102/10161/3bc621_Big.jpg",
   },
   {
     title: "Smart CNC Knitting & Weaving",
-    subtitle: "Artistry Meets Automation",
-    description: "Equipped with state-of-the-art circular and flat-bed computerized knitting frameworks to bring complex structures, jacquards, and seamless constructions to life.",
-    icon: "⚙️",
-    tags: ["Seamless Knitting", "High-Speed Warp", "CNC Multi-Head Embroidery"],
-    accent: "#D4A0C0"
-  }
+    subtitle: "INNOVATION",
+    description:
+      "Computerized knitting and weaving technologies create complex textures, seamless garments, and refined craftsmanship.",
+    icon: "◉",
+    accent: "#D9B4C5",
+    image: "https://www.stylecnc.com/uploads/220127/1-22012G53RAD.jpg",
+  },
 ];
 
-function useReveal(threshold = 0.15) {
+function useReveal() {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setVisible(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
       },
-      { threshold }
+      { threshold: 0.05 }
     );
 
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, [threshold]);
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return [ref, visible];
 }
 
 export default function Capabilities() {
-  const [sectionRef, visible] = useReveal(0.15);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [sectionRef, visible] = useReveal();
 
   return (
-    <div 
-      ref={sectionRef} 
-      className="relative min-h-screen overflow-hidden bg-[#FAF9F6] px-5 py-24 md:px-16"
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#FBF9F4] py-32"
     >
-      {/* Decorative architectural layout grids */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{
-        backgroundImage: "radial-gradient(#1A1410 1px, transparent 1px)",
-        backgroundSize: "24px 24px"
-      }} />
+      {/* Decorative Background */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(#1A1410 1px, transparent 1px), linear-gradient(90deg,#1A1410 1px,transparent 1px)",
+            backgroundSize: "80px 80px",
+          }}
+        />
+      </div>
 
-      {/* Decorative ambient blobs */}
-      <div className="absolute -left-48 top-1/4 h-96 w-96 rounded-full bg-[#C4A265] opacity-5 blur-[120px] pointer-events-none" />
-      <div className="absolute -right-48 bottom-1/4 h-96 w-96 rounded-full bg-[#80C4BC] opacity-[0.06] blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 top-0 h-[600px] w-[600px] rounded-full bg-[#C9A66B]/10 blur-[140px]" />
+      <div className="absolute right-0 bottom-0 h-[600px] w-[600px] rounded-full bg-[#D9B4C5]/10 blur-[140px]" />
 
-      {/* Header */}
-      <div className="mx-auto mb-20 max-w-3xl text-center">
-        <p className={`mb-4 text-[11px] font-semibold uppercase tracking-[0.36em] text-[#C4A265] transition-all duration-700
-          ${visible ? "opacity-100" : "translate-y-3 opacity-0"}`}
+      <div className="relative mx-auto max-w-7xl px-6">
+        {/* Heading */}
+
+        <div
+          className={`mb-16 md:mb-32 text-center transition-all duration-1000 ${visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10"
+            }`}
         >
-          World-Class Infrastructure
-        </p>
+          <p className="mb-5 text-xs uppercase tracking-[0.5em] text-[#C9A66B]">
+            Textile Excellence
+          </p>
 
-        <h2 className={`mb-6 font-serif text-5xl font-bold leading-none text-[#1A1410] transition-all duration-700 md:text-7xl
-          ${visible ? "opacity-100" : "translate-y-5 opacity-0"}`}
-        >
-          Capabilities & <br />
-          <span className="italic text-[#C4A265]">Innovation</span>
-        </h2>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-8xl font-bold text-[#1A1410] leading-tight">
+            Crafted For
+            <br />
+            Modern Fashion
+          </h2>
 
-        {/* Divider */}
-        <div className="mb-6 flex items-center justify-center gap-3">
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#C4A265]" />
-          <div className="h-1.5 w-1.5 rounded-full bg-[#C4A265]" />
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#C4A265]" />
+          <div className="mx-auto my-8 h-px w-32 bg-gradient-to-r from-transparent via-[#C9A66B] to-transparent" />
+
+          <p className="mx-auto max-w-3xl text-base md:text-lg leading-8 text-[#6B6256] px-4 md:px-0">
+            Combining sustainable craftsmanship, precision engineering and
+            textile innovation to create world-class apparel solutions.
+          </p>
         </div>
 
-        <p className={`mx-auto max-w-2xl font-serif text-lg italic leading-8 text-[#7A6B5A] transition-all duration-700 delay-100
-          ${visible ? "opacity-100" : "translate-y-4 opacity-0"}`}
-        >
-          Merging centuries of tactile heritage with cutting-edge digital technology, Honeywell sets new benchmarks for speed, sustainability, and precision.
-        </p>
-      </div>
+        {/* Editorial Layout */}
 
-      {/* Stats Counter Section */}
-      <div className={`mx-auto mb-24 grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4 transition-all duration-1000 delay-200
-        ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-      >
-        {[
-          { value: "500k+", label: "Monthly Capacity" },
-          { value: "100%", label: "Green Energy Powered" },
-          { value: "24/7", label: "Quality Supervision" },
-          { value: "Zero", label: "Landfill Waste Target" }
-        ].map((stat, i) => (
-          <div key={i} className="group relative rounded-xl border border-[#EDEAE4] bg-white p-6 text-center shadow-sm transition-all duration-500 hover:shadow-md">
-            <div className="mb-2 font-serif text-4xl font-bold text-[#1A1410] transition-transform duration-500 group-hover:scale-105">
-              {stat.value}
-            </div>
-            <div className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#9A9080]">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Capabilities Interactive Cards Grid */}
-      <div className={`mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3 transition-all duration-1000 delay-300
-        ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
-      >
-        {CAPABILITIES.map((cap, i) => {
-          const isHovered = hoveredIndex === i;
-          return (
+        <div className="space-y-28">
+          {CAPABILITIES.map((item, index) => (
             <div
-              key={i}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className={`relative overflow-hidden rounded-2xl border bg-white p-8 shadow-sm transition-all duration-700 ease-out
-                ${isHovered ? "-translate-y-3 shadow-xl" : ""}`}
-              style={{
-                borderColor: isHovered ? cap.accent : "#EDEAE4"
-              }}
+              key={index}
+              className={`
+                grid items-center gap-16
+                md:grid-cols-2
+                ${index % 2 !== 0
+                  ? "md:[&>*:first-child]:order-2"
+                  : ""
+                }
+              `}
             >
-              {/* Dynamic light ambient glow */}
-              <div 
-                className="absolute -right-8 -top-8 h-24 w-24 rounded-full blur-3xl transition-all duration-700 pointer-events-none"
-                style={{
-                  background: cap.accent,
-                  opacity: isHovered ? 0.15 : 0
-                }}
-              />
+              {/* Visual Block */}
 
-              {/* Icon / Brand mark */}
-              <div 
-                className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl text-2xl transition-all duration-500"
-                style={{
-                  background: isHovered ? cap.accent : "#F8F6F2",
-                  transform: isHovered ? "rotate(10deg) scale(1.1)" : "none"
-                }}
-              >
-                {cap.icon}
+              <div className="relative">
+                <div
+                  className="relative overflow-hidden rounded-[40px] h-[500px] shadow-sm"
+                  style={{
+                    background: `linear-gradient(135deg, ${item.accent}15, #ffffff)`,
+                  }}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    style={{ filter: "brightness(0.95) contrast(1.02) sepia(0.05)" }}
+                  />
+
+                  {/* Subtle color wash overlay */}
+                  {/* <div
+                    className="absolute inset-0 mix-blend-multiply opacity-[0.25]"
+                    style={{
+                      background: `linear-gradient(135deg, ${item.accent}, transparent)`,
+                    }}
+                  /> */}
+
+                  {/* Gradient shadow for readability */}
+                  {/* <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" /> */}
+
+                  {/* Fashion Pattern Overlays */}
+                  {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div
+                      className="text-[240px] font-black opacity-[0.15] select-none text-white"
+                    >
+                      0{index + 1}
+                    </div>
+                  </div> */}
+{/* 
+                  <div
+                    className="absolute top-10 right-10 h-32 w-32 rounded-full pointer-events-none"
+                    style={{
+                      background: item.accent,
+                      opacity: 0.18,
+                    }}
+                  /> */}
+
+                  {/* <div
+                    className="absolute bottom-10 left-10 h-40 w-40 rounded-full pointer-events-none"
+                    style={{
+                      border: `2px solid ${item.accent}`,
+                      opacity: 0.35,
+                    }}
+                  /> */}
+{/* 
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div
+                      className="h-52 w-52 rounded-full backdrop-blur-[2px]"
+                      style={{
+                        border: "1px solid rgba(255,255,255,0.45)",
+                        background: "rgba(255,255,255,0.1)",
+                      }}
+                    />
+                  </div> */}
+                </div>
               </div>
 
-              {/* Card Subtitle */}
-              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: cap.accent }}>
-                {cap.subtitle}
-              </p>
+              {/* Content Block */}
 
-              {/* Card Title */}
-              <h3 className="mb-4 font-serif text-2xl font-bold text-[#1A1410]">
-                {cap.title}
-              </h3>
+              <div>
+                <p
+                  className="mb-4 text-xs uppercase tracking-[0.45em]"
+                  style={{ color: item.accent }}
+                >
+                  {item.subtitle}
+                </p>
 
-              {/* Card Description */}
-              <p className="mb-8 font-sans text-sm leading-relaxed text-[#7A6B5A]">
-                {cap.description}
-              </p>
+                <div
+                  className="mb-5 text-5xl"
+                  style={{ color: item.accent }}
+                >
+                  {item.icon}
+                </div>
 
-              {/* Tags panel */}
-              <div className="flex flex-wrap gap-2">
-                {cap.tags.map((tag, tagIndex) => (
-                  <span 
-                    key={tagIndex} 
-                    className="rounded-full bg-[#F4F1EA] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#7A6B5A] transition-colors duration-300"
+                <h3 className="font-serif text-5xl font-bold text-[#1A1410] leading-tight">
+                  {item.title}
+                </h3>
+
+                <div
+                  className="my-8 h-px w-20"
+                  style={{ background: item.accent }}
+                />
+
+                <p className="max-w-xl text-lg leading-9 text-[#6B6256]">
+                  {item.description}
+                </p>
+
+                {/* <button
+                  className="mt-10 group flex items-center gap-4"
+                  style={{ color: item.accent }}
+                >
+                  <span className="text-sm uppercase tracking-[0.3em]">
+                    Explore More
+                  </span>
+
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-500 group-hover:translate-x-2"
                     style={{
-                      borderColor: isHovered ? `${cap.accent}33` : "transparent",
-                      borderWidth: "1px"
+                      borderColor: item.accent,
                     }}
                   >
-                    {tag}
-                  </span>
-                ))}
+                    →
+                  </div>
+                </button> */}
               </div>
-
-              {/* Exquisite interactive bottom line */}
-              <div 
-                className="absolute bottom-0 left-0 h-1 transition-all duration-700" 
-                style={{
-                  background: cap.accent,
-                  width: isHovered ? "100%" : "24px"
-                }}
-              />
             </div>
-          );
-        })}
+          ))}
+        </div>
+
+        {/* Bottom Luxury Statement */}
+
+        <div className="mt-40 text-center">
+          <h3 className="font-serif text-5xl md:text-7xl text-[#1A1410]">
+            Fashion Begins
+            <br />
+            With Fabric.
+          </h3>
+
+          <p className="mx-auto mt-8 max-w-2xl text-lg text-[#6B6256] leading-8">
+            Every thread tells a story of craftsmanship, innovation and
+            sustainability.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

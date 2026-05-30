@@ -1,447 +1,183 @@
-
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  Sparkles,
-  Leaf,
-  Mail,
-} from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-const categories = ["ALL", "KIDS", "MENS", "WOMENS"];
-
-const productsList = [
-  // KIDS
-  {
-    id: 1,
-    name: "Artisanal Rompers & Bodysuits",
-    category: "KIDS",
-    subcategory: "Rompers, Bodysuits / Onesies",
-    description:
-      "Incredibly soft, breathable knitwear featuring nickel-free snap fastenings and sensory-friendly flat-lock sewing.",
-    image:
-      "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Rompers", "Bodysuits", "Onesies"],
-    specs: [
-      "100% Combed Cotton",
-      "GOTS Organic Certified",
-      "Anti-Allergenic Snaps",
-    ],
-  },
-  {
-    id: 2,
-    name: "Cozy Sleepsuits & Babygrows",
-    category: "KIDS",
-    subcategory: "Sleepsuits, Babygrows",
-    description:
-      "Engineered with expandable necklines and flexible rib-knit cuffs for all-night comfort.",
-    image:
-      "https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Sleepsuits", "Babygrows", "Lounge"],
-    specs: [
-      "Interlock Fabric",
-      "Expandable Shoulders",
-      "Thermal Comfort",
-    ],
-  },
-  {
-    id: 3,
-    name: "Premium Pyjama Sets & Playsuits",
-    category: "KIDS",
-    subcategory: "Pyjama Sets, Tops & Bottom Sets",
-    description:
-      "Cozy matching sets crafted from light, stretchable materials.",
-    image:
-      "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Pyjamas", "Matching Sets", "Playwear"],
-    specs: ["2-Piece Set", "Tagless Necklines", "High Elasticity"],
-  },
-  {
-    id: 4,
-    name: "Kids Comfort Wear & Accessories",
-    category: "KIDS",
-    subcategory:
-      "Leggings, Shorts, Dresses, Caps & Accessories",
-    description:
-      "Durable stretch leggings, soft dresses, casual shorts, and everyday accessories.",
-    image:
-      "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Leggings", "Dresses", "Shorts", "Caps"],
-    specs: [
-      "Non-toxic Dyes",
-      "Reinforced Seams",
-      "Soft Rib Elastic",
-    ],
-  },
-
-  // MENS
-  {
-    id: 5,
-    name: "Engineered Crew & V-Neck Tees",
-    category: "MENS",
-    subcategory: "T-Shirts",
-    description:
-      "Premium combed cotton shirts with tailored structure and superior softness.",
-    image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop",
-    tags: ["T-Shirts", "Crewneck", "V-Neck"],
-    specs: [
-      "180 - 200 GSM",
-      "100% Combed Cotton",
-      "Pre-shrunk Weave",
-    ],
-  },
-  {
-    id: 6,
-    name: "Luxury Pique Polo Shirts",
-    category: "MENS",
-    subcategory: "Polo T-Shirts",
-    description:
-      "Premium polo shirts engineered with shape-retaining collars and elegant structure.",
-    image:
-      "https://images.unsplash.com/photo-1589310243389-96a5483213a8?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Polos", "Pique Knit", "Sports Casual"],
-    specs: [
-      "220 GSM",
-      "Engineered Collars",
-      "Reinforced Plackets",
-    ],
-  },
-  {
-    id: 7,
-    name: "Smart Lounge Pants & Pyjamas",
-    category: "MENS",
-    subcategory:
-      "Pyjamas & Lounge Pants, Nightwear Sets",
-    description:
-      "Relaxed trousers and matching sleepwear sets designed for maximum comfort.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Pyjamas", "Lounge Pants", "Nightwear"],
-    specs: [
-      "French Terry Knit",
-      "Adjustable Drawcords",
-      "Anti-pilling Finish",
-    ],
-  },
-  {
-    id: 8,
-    name: "High-Stretch Trousers & Joggers",
-    category: "MENS",
-    subcategory:
-      "Trousers, Track Pants & Joggers, Shorts",
-    description:
-      "Comfortable joggers and trousers with ergonomic tailoring and utility pockets.",
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Joggers", "Track Pants", "Trousers", "Shorts"],
-    specs: [
-      "Lycra Cotton Blend",
-      "Ergonomic Pockets",
-      "Flex Waistband",
-    ],
-  },
-
-  // WOMENS
-  {
-    id: 9,
-    name: "Premium Knit Tops & Tees",
-    category: "WOMENS",
-    subcategory: "Tops & T-Shirts",
-    description:
-      "Elegant rib tops and premium modal tees crafted for breathable comfort.",
-    image:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Tops", "T-Shirts", "Fine-Jersey"],
-    specs: [
-      "Modal Cotton Blend",
-      "Silky Touch",
-      "High Shape Retention",
-    ],
-  },
-  {
-    id: 10,
-    name: "Ethereal Lounge & Nightwear",
-    category: "WOMENS",
-    subcategory:
-      "Pyjamas & Lounge Sets, Nightwear",
-    description:
-      "Luxury lounge and nightwear crafted from lightweight silky fabrics.",
-    image:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Lounge Sets", "Nightwear", "Pyjamas"],
-    specs: [
-      "Silky Rayon Weave",
-      "Contrast Satin Piping",
-      "Relaxed Fit",
-    ],
-  },
-  {
-    id: 11,
-    name: "Casual Dresses & Comfort Trousers",
-    category: "WOMENS",
-    subcategory:
-      "Dresses (casual & daywear), Trousers & Comfort Pants",
-    description:
-      "Flowy dresses and ultra-comfort trousers for elevated casualwear.",
-    image:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Dresses", "Comfort Pants", "Trousers"],
-    specs: [
-      "Linen Blend",
-      "Natural Breathability",
-      "Side Slash Pockets",
-    ],
-  },
-  {
-    id: 12,
-    name: "Bespoke Tunics & Coordinates",
-    category: "WOMENS",
-    subcategory: "Tunics, Co-ord Sets",
-    description:
-      "Contemporary tunics and coordinated ensembles designed with premium silhouettes.",
-    image:
-      "https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=1200&auto=format&fit=crop",
-    tags: ["Tunics", "Co-ords", "Matched Sets"],
-    specs: [
-      "Eco-Vero Viscose",
-      "Architectural Cut",
-      "Flawless Silhouette",
-    ],
-  },
-];
+import React from "react";
 
 export default function Products() {
-  const [activeCategory, setActiveCategory] =
-    useState("ALL");
+    const Kids = [{ category: "Kids", subCategory: [{ name: "Rompers", img: "https://www.luvlap.com/cdn/shop/files/905248-905251FSRomperPO3_Frame_1.jpg?v=1763125121&width=533" }, { name: "Onesies", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Sleepsuits", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Babygrows", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Pyjama Sets", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Tops & Bottom Sets", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Sleepsuits", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Leggings", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Shorts", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Dresses", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Caps & Basic Accessories", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" },] }, { catergory: "mens", subCategory: [{ name: "T-Shirts", img: "https://uspoloassn.in/cdn/shop/files/1_fc6c3130-5e03-49c3-984b-b28e90d3cdc5_500x.jpg?v=1769097059" }, { name: "Polo T-Shirts", img: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_300,h_300/global/687093/02/mod01/fnd/IND/fmt/png/Men's-Slim-Fit-Polo-T-shirt" }, { name: "Pyjamas & Lounge Pants", img: "https://brownliving.in/cdn/shop/products/mens-combo-pack-of-2-lounge-pants-blue-and-grey-gsm-170-free-size-verified-sustainable-products-on-brown-living-140408.jpg?v=1700481160&width=1200" }, { name: "Nightwear Sets", img: "https://m.media-amazon.com/images/I/41JwngGVJ1L.jpg" }, { name: "Trousers", img: "https://tigc.in/cdn/shop/files/0625-BGNLRXTR-04_8.jpg?v=1778070886" }, { name: "Track Pants & Joggers", img: "https://images-na.ssl-images-amazon.com/images/I/71b+W8e8sOL.jpg" }, { name: "Shorts", img: "https://www.montecarlo.in/cdn/shop/files/2260105406-1-38_1.jpg?v=1771847767&width=1080" },] }, { catergory: "womens", subCategory: [{ name: 'Tops & T-Shirts', img: 'https://m.media-amazon.com/images/I/51yLBBW5eQL._AC._SR180,230.jpg' }, { name: 'Pyjamas & Lounge Sets', img: 'https://m.media-amazon.com/images/I/71uxhLpSoTL.jpg' }, { name: 'Nightwear', img: 'https://blanc9.com/cdn/shop/files/Blanc9WomenBlack_WhiteCheckeredNightwearWithPinkPiping-1.jpg?v=1743764527&width=1080' }, { name: 'Trousers & Comfort Pants', img: 'https://m.media-amazon.com/images/I/610u2-1F6mL.jpg' }, { name: 'Dresses (casual & daywear)', img: 'https://www.lavanyathelabel.com/cdn/shop/articles/photo-collage.png_13_1.png?v=1741786181&width=1500' }, { name: 'Tunics', img: 'https://m.media-amazon.com/images/I/71dX6gWxQVL.jpg' }, { name: 'Co-ord Sets', img: 'https://janasya.com/cdn/shop/files/JAC26CD04415.jpg?v=1778062235&width=1080' },] }]
+    const categories = Kids;
 
-  const navigate = useNavigate();
+    return (
+        <div className="min-h-screen bg-[#0a0a0a] text-white">
+            {/* Hero Section */}
+            <section className="relative h-[90vh] overflow-hidden">
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
 
-  const filteredProducts =
-    activeCategory === "ALL"
-      ? productsList
-      : productsList.filter(
-          (p) => p.category === activeCategory
-        );
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
 
-  return (
-    <div className="min-h-screen bg-[#FAF9F6] font-sans relative overflow-x-hidden">
+                <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-20">
+                    <p className="uppercase tracking-[10px] text-zinc-300 mb-4">
+                        New Collection
+                    </p>
 
-      {/* Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+                    <h1 className="text-6xl md:text-8xl font-black leading-none">
+                        STYLE
+                        <br />
+                        REDEFINED
+                    </h1>
 
-        .cormorant {
-          font-family: 'Cormorant Garamond', serif;
-        }
+                    <p className="mt-6 text-zinc-300 max-w-xl">
+                        Discover premium collections crafted for modern lifestyles.
+                    </p>
 
-        .outfit {
-          font-family: 'Outfit', sans-serif;
-        }
-
-        .gold-gradient-text {
-          background: linear-gradient(
-            90deg,
-            #9E7A3B 0%,
-            #C4A265 50%,
-            #9E7A3B 100%
-          );
-
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      `}</style>
-
-      {/* Hero */}
-      <section className="relative px-6 pt-24 pb-16 max-w-7xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-5"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 border border-[#C4A265]/30 rounded-full bg-white/60 backdrop-blur-md">
-            <Sparkles className="w-4 h-4 text-[#9E7A3B]" />
-
-            <span className="outfit text-[10px] font-bold tracking-[0.3em] uppercase text-[#9E7A3B]">
-              Honeywell Creation Portfolio
-            </span>
-          </div>
-
-          <h1 className="cormorant text-5xl md:text-7xl font-light text-[#1A1410] leading-tight">
-            Premium Apparel <br />
-
-            <span className="italic gold-gradient-text">
-              Export Inventory
-            </span>
-          </h1>
-
-          <div className="w-20 h-[1px] bg-[#C4A265]/40 mx-auto"></div>
-
-          <p className="outfit text-sm md:text-base text-[#7A6B5A] max-w-3xl mx-auto leading-relaxed">
-            Explore our premium collections across kids,
-            mens, and womens apparel crafted for global
-            fashion brands.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Categories */}
-      <section className="px-6 pb-14 max-w-7xl mx-auto">
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {categories.map((cat) => {
-            const active = activeCategory === cat;
-
-            return (
-              <motion.button
-                key={cat}
-                whileTap={{ scale: 0.96 }}
-                whileHover={{ y: -1 }}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-3 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 outfit ${
-                  active
-                    ? "bg-[#9E7A3B] text-white"
-                    : "bg-white border border-[#C4A265]/20 text-[#4A3F35] hover:bg-[#C4A265]/10"
-                }`}
-              >
-                {cat}
-              </motion.button>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="px-6 pb-28 max-w-7xl mx-auto">
-        <motion.div
-          layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((p) => (
-              <motion.div
-                key={p.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="group bg-white rounded-3xl overflow-hidden border border-[#C4A265]/15 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
-              >
-                {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [filter:saturate(1.05)_contrast(1.02)]"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full">
-                    <span className="outfit text-[9px] font-bold uppercase tracking-wider text-[#9E7A3B]">
-                      {p.category}
-                    </span>
-                  </div>
+                    <button className="mt-8 w-fit px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
+                        Explore Now
+                    </button>
                 </div>
+            </section>
 
-                {/* Content */}
-                <div className="p-7 space-y-4">
-                  <span className="outfit text-[10px] tracking-[0.25em] uppercase text-[#9A9080]">
-                    {p.subcategory}
-                  </span>
+            {/* Categories */}
+            <div className="max-w-[1600px] mx-auto px-6 py-24 space-y-32">
+                {categories.map((category, categoryIndex) => (
+                    <section key={categoryIndex}>
+                        {/* Heading */}
+                        <div className="flex items-end justify-between mb-10">
+                            <div>
+                                <p className="text-zinc-500 uppercase tracking-[5px] mb-3">
+                                    Collection
+                                </p>
 
-                  <h3 className="cormorant text-3xl font-semibold text-[#1A1410]">
-                    {p.name}
-                  </h3>
+                                <h2 className="text-5xl md:text-7xl font-black uppercase">
+                                    {category.category || category.catergory}
+                                </h2>
+                            </div>
 
-                  <p className="outfit text-sm text-[#7A6B5A] leading-relaxed">
-                    {p.description}
-                  </p>
+                            <button className="hidden md:block border border-zinc-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+                                View All
+                            </button>
+                        </div>
 
-                  {/* Specs */}
-                  <div className="space-y-2 pt-2">
-                    {p.specs.map((spec, index) => (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2"
-                      >
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#C4A265]" />
+                        {/* Modern Layout */}
+                        <div className="grid md:grid-cols-12 gap-6">
+                            {category.subCategory.map((item, index) => {
+                                const large =
+                                    index === 0 || index === 4 || index === 7;
 
-                        <span className="outfit text-xs text-[#4A3F35]">
-                          {spec}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`
+                      group
+                      relative
+                      overflow-hidden
+                      rounded-[35px]
+                      cursor-pointer
+                      ${large
+                                                ? "md:col-span-6 h-[550px]"
+                                                : "md:col-span-3 h-[270px]"
+                                            }
+                    `}
+                                    >
+                                        <img
+                                            src={item.img}
+                                            alt={item.name}
+                                            className="
+                        absolute
+                        inset-0
+                        w-full
+                        h-full
+                        object-cover
+                        transition-all
+                        duration-700
+                        group-hover:scale-110
+                      "
+                                        />
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 pt-3">
-                    {p.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[9px] uppercase tracking-widest px-3 py-1 rounded-full bg-[#C4A265]/10 text-[#9E7A3B] outfit"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                                        <div
+                                            className="
+                        absolute
+                        inset-0
+                        bg-gradient-to-t
+                        from-black
+                        via-black/20
+                        to-transparent
+                      "
+                                        />
 
-                  {/* CTA */}
-                  <motion.button
-                    whileTap={{ scale: 0.97 }}
-                    onClick={() => navigate("/contact")}
-                    className="w-full mt-5 flex items-center justify-center gap-2 py-3 rounded-2xl border border-[#C4A265] text-[#9E7A3B] hover:bg-[#9E7A3B] hover:text-white transition-all duration-300 text-sm font-semibold tracking-wider"
-                  >
-                    <span>Send Export Inquiry</span>
+                                        <div className="absolute bottom-0 left-0 p-6">
+                                            <span className="text-xs tracking-[4px] uppercase text-zinc-300">
+                                                Trending
+                                            </span>
 
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.button>
+                                            <h3 className="text-2xl font-bold mt-2">
+                                                {item.name}
+                                            </h3>
+                                        </div>
+
+                                        <div
+                                            className="
+                        absolute
+                        top-5
+                        right-5
+                        w-12
+                        h-12
+                        rounded-full
+                        bg-white/10
+                        backdrop-blur-lg
+                        flex
+                        items-center
+                        justify-center
+                        opacity-0
+                        group-hover:opacity-100
+                        transition
+                      "
+                                        >
+                                            →
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </section>
+                ))}
+            </div>
+
+            {/* Bottom Banner */}
+            <section className="px-6 pb-20">
+                <div
+                    className="
+            max-w-[1600px]
+            mx-auto
+            rounded-[40px]
+            overflow-hidden
+            relative
+            h-[400px]
+          "
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1483985988355-763728e1935b"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+
+                    <div className="absolute inset-0 bg-black/60" />
+
+                    <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
+                        <h2 className="text-5xl font-black">
+                            Wear The Future
+                        </h2>
+
+                        <p className="text-zinc-300 mt-4">
+                            Fashion that blends comfort, luxury and modern design.
+                        </p>
+
+                        <button className="mt-8 px-8 py-4 bg-white text-black rounded-full font-semibold">
+                            Shop Collection
+                        </button>
+                    </div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="px-6 pb-24">
-        <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden bg-gradient-to-br from-[#1A1410] to-[#2D231C] text-white p-10 md:p-16 relative">
-
-          <div className="relative z-10 text-center space-y-6">
-            <Leaf className="w-8 h-8 text-[#C4A265] mx-auto" />
-
-            <h2 className="cormorant text-4xl md:text-6xl font-light leading-tight">
-              Ready to Partner <br />
-
-              <span className="italic text-[#C4A265]">
-                with India's Leading Creator?
-              </span>
-            </h2>
-
-            <p className="outfit text-sm text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              From organic kidswear to luxury loungewear,
-              we manufacture world-class garments for
-              international brands with speed,
-              sustainability, and precision craftsmanship.
-            </p>
-
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => navigate("/contact")}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#9E7A3B] to-[#C4A265] text-white text-xs uppercase tracking-[0.25em] font-semibold"
-            >
-              <Mail className="w-4 h-4" />
-
-              <span>Initiate Export Inquiry</span>
-            </motion.button>
-          </div>
+            </section>
         </div>
-      </section>
-    </div>
-  );
+    );
 }

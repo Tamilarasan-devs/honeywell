@@ -5,6 +5,7 @@ import Process from '../folder/Home/Process'
 import Capabilities from '../folder/Home/Capabilities'
 import OurClients from '../folder/Home/OurClients'
 import Certification from './Certification'
+import ManagementTeam from './ManagementTeam'
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <Process/>
         <Capabilities/>
         <OurClients/>
-        <Certification/>
+        <ManagementTeam/>
     </div>
   )
 }
