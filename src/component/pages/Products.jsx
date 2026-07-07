@@ -1,181 +1,172 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+import img1 from '../../assets/product/1.png'
+import img2 from '../../assets/product/2.png'
+import img3 from '../../assets/product/3.png'
+import img4 from '../../assets/product/4.png'
+import img5 from '../../assets/product/5.png'
+import img6 from '../../assets/product/6.png'
+import img7 from '../../assets/product/7.png'
+import img8 from '../../assets/product/8.png'
+import img9 from '../../assets/product/9.png'
+import img10 from '../../assets/product/10.png'
+import img11 from '../../assets/product/11.png'
+import img12 from '../../assets/product/12.png'
+import img13 from '../../assets/product/13.png'
+import img14 from '../../assets/product/14.png'
+import img15 from '../../assets/product/15.png'
+import img16 from '../../assets/product/16.png'
+import img17 from '../../assets/product/17.png'
+import img18 from '../../assets/product/18.png'
+import img19 from '../../assets/product/19.png'
+import img20 from '../../assets/product/20.png'
+import img21 from '../../assets/product/21.png'
+import img22 from '../../assets/product/22.png'
+import img23 from '../../assets/product/23.png'
+import img24 from '../../assets/product/24.png'
+import img25 from '../../assets/product/25.png'
+import img26 from '../../assets/product/26.png'
+import img27 from '../../assets/product/27.png'
+import img28 from '../../assets/product/28.png'
+import img29 from '../../assets/product/29.png'
+import img30 from '../../assets/product/30.png'
+import img31 from '../../assets/product/31.png'
+import img32 from '../../assets/product/32.png'
+import img33 from '../../assets/product/33.png'
+import img34 from '../../assets/product/34.png'
+import img35 from '../../assets/product/35.png'
 
 export default function Products() {
-    const Kids = [{ category: "Kids", subCategory: [{ name: "Rompers", img: "https://www.luvlap.com/cdn/shop/files/905248-905251FSRomperPO3_Frame_1.jpg?v=1763125121&width=533" }, { name: "Onesies", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Sleepsuits", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Babygrows", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Pyjama Sets", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Tops & Bottom Sets", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Sleepsuits", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Leggings", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Shorts", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Dresses", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" }, { name: "Caps & Basic Accessories", img: "https://m.media-amazon.com/images/I/817CVbs6GEL.jpg" },] }, { catergory: "mens", subCategory: [{ name: "T-Shirts", img: "https://uspoloassn.in/cdn/shop/files/1_fc6c3130-5e03-49c3-984b-b28e90d3cdc5_500x.jpg?v=1769097059" }, { name: "Polo T-Shirts", img: "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_300,h_300/global/687093/02/mod01/fnd/IND/fmt/png/Men's-Slim-Fit-Polo-T-shirt" }, { name: "Pyjamas & Lounge Pants", img: "https://brownliving.in/cdn/shop/products/mens-combo-pack-of-2-lounge-pants-blue-and-grey-gsm-170-free-size-verified-sustainable-products-on-brown-living-140408.jpg?v=1700481160&width=1200" }, { name: "Nightwear Sets", img: "https://m.media-amazon.com/images/I/41JwngGVJ1L.jpg" }, { name: "Trousers", img: "https://tigc.in/cdn/shop/files/0625-BGNLRXTR-04_8.jpg?v=1778070886" }, { name: "Track Pants & Joggers", img: "https://images-na.ssl-images-amazon.com/images/I/71b+W8e8sOL.jpg" }, { name: "Shorts", img: "https://www.montecarlo.in/cdn/shop/files/2260105406-1-38_1.jpg?v=1771847767&width=1080" },] }, { catergory: "womens", subCategory: [{ name: 'Tops & T-Shirts', img: 'https://m.media-amazon.com/images/I/51yLBBW5eQL._AC._SR180,230.jpg' }, { name: 'Pyjamas & Lounge Sets', img: 'https://m.media-amazon.com/images/I/71uxhLpSoTL.jpg' }, { name: 'Nightwear', img: 'https://blanc9.com/cdn/shop/files/Blanc9WomenBlack_WhiteCheckeredNightwearWithPinkPiping-1.jpg?v=1743764527&width=1080' }, { name: 'Trousers & Comfort Pants', img: 'https://m.media-amazon.com/images/I/610u2-1F6mL.jpg' }, { name: 'Dresses (casual & daywear)', img: 'https://www.lavanyathelabel.com/cdn/shop/articles/photo-collage.png_13_1.png?v=1741786181&width=1500' }, { name: 'Tunics', img: 'https://m.media-amazon.com/images/I/71dX6gWxQVL.jpg' }, { name: 'Co-ord Sets', img: 'https://janasya.com/cdn/shop/files/JAC26CD04415.jpg?v=1778062235&width=1080' },] }]
-    const categories = Kids;
+    const [activeTab, setActiveTab] = useState("All");
+
+    // Strictly categorized based on your request
+    const categories = {
+        Kids: [
+            img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, 
+            img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23,
+            img1, img2, img3
+        ],
+        Mens: [
+            img24, img25, img26, img27, img28
+        ],
+        Womens: [
+            img29, img30, img31, img32, img33, img34, img35
+        ]
+    };
+
+    const categoriesToRender = activeTab === "All" ? Object.keys(categories) : [activeTab];
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white">
-            {/* Hero Section */}
-            <section className="relative h-[90vh] overflow-hidden">
+        <div className="min-h-screen bg-[#0A0A0A] text-white selection:bg-white selection:text-black font-sans">
+            
+            {/* Structured Hero */}
+            <section className="relative h-[55vh] border-b border-white/10 overflow-hidden bg-zinc-900">
                 <img
-                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b"
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
+                    alt="Collection Banner"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-
-                <div className="relative z-10 flex flex-col justify-center h-full px-8 md:px-20">
-                    <p className="uppercase tracking-[10px] text-zinc-300 mb-4">
-                        New Collection
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/50" />
+                <div className="relative z-10 h-full flex flex-col justify-end pb-12 px-6 md:px-12 max-w-[1600px] mx-auto">
+                    <p className="text-zinc-400 uppercase tracking-[0.2em] text-xs font-semibold mb-4">
+                        Seasonal Release
                     </p>
-
-                    <h1 className="text-6xl md:text-8xl font-black leading-none">
-                        STYLE
-                        <br />
-                        REDEFINED
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
+                        The Collection
                     </h1>
-
-                    <p className="mt-6 text-zinc-300 max-w-xl">
-                        Discover premium collections crafted for modern lifestyles.
+                    <p className="text-zinc-400 max-w-xl text-lg">
+                        Engineered for performance and designed for everyday elegance. Discover the new standard.
                     </p>
-
-                    <button className="mt-8 w-fit px-8 py-4 rounded-full bg-white text-black font-semibold hover:scale-105 transition">
-                        Explore Now
-                    </button>
                 </div>
             </section>
 
-            {/* Categories */}
-            <div className="max-w-[1600px] mx-auto px-6 py-24 space-y-32">
-                {categories.map((category, categoryIndex) => (
-                    <section key={categoryIndex}>
-                        {/* Heading */}
-                        <div className="flex items-end justify-between mb-10">
-                            <div>
-                                <p className="text-zinc-500 uppercase tracking-[5px] mb-3">
-                                    Collection
-                                </p>
-
-                                <h2 className="text-5xl md:text-7xl font-black uppercase">
-                                    {category.category || category.catergory}
-                                </h2>
-                            </div>
-
-                            <button className="hidden md:block border border-zinc-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
-                                View All
+            {/* Sticky Professional Navigation */}
+            <section className="sticky top-0 z-40 bg-[#0A0A0A]/90 backdrop-blur-xl border-b border-white/10">
+                <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex items-center overflow-x-auto hide-scrollbar">
+                    <div className="flex items-center gap-8 md:gap-12 min-w-max">
+                        {["All", ...Object.keys(categories)].map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`text-xs md:text-sm tracking-widest uppercase transition-colors relative py-6 ${
+                                    activeTab === tab ? "text-white font-bold" : "text-zinc-500 hover:text-zinc-300"
+                                }`}
+                            >
+                                {tab}
+                                {activeTab === tab && (
+                                    <motion.div
+                                        layoutId="tab-indicator"
+                                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-white"
+                                    />
+                                )}
                             </button>
-                        </div>
-
-                        {/* Modern Layout */}
-                        <div className="grid md:grid-cols-12 gap-6">
-                            {category.subCategory.map((item, index) => {
-                                const large =
-                                    index === 0 || index === 4 || index === 7;
-
-                                return (
-                                    <div
-                                        key={index}
-                                        className={`
-                      group
-                      relative
-                      overflow-hidden
-                      rounded-[35px]
-                      cursor-pointer
-                      ${large
-                                                ? "md:col-span-6 h-[550px]"
-                                                : "md:col-span-3 h-[270px]"
-                                            }
-                    `}
-                                    >
-                                        <img
-                                            src={item.img}
-                                            alt={item.name}
-                                            className="
-                        absolute
-                        inset-0
-                        w-full
-                        h-full
-                        object-cover
-                        transition-all
-                        duration-700
-                        group-hover:scale-110
-                      "
-                                        />
-
-                                        <div
-                                            className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black
-                        via-black/20
-                        to-transparent
-                      "
-                                        />
-
-                                        <div className="absolute bottom-0 left-0 p-6">
-                                            <span className="text-xs tracking-[4px] uppercase text-zinc-300">
-                                                Trending
-                                            </span>
-
-                                            <h3 className="text-2xl font-bold mt-2">
-                                                {item.name}
-                                            </h3>
-                                        </div>
-
-                                        <div
-                                            className="
-                        absolute
-                        top-5
-                        right-5
-                        w-12
-                        h-12
-                        rounded-full
-                        bg-white/10
-                        backdrop-blur-lg
-                        flex
-                        items-center
-                        justify-center
-                        opacity-0
-                        group-hover:opacity-100
-                        transition
-                      "
-                                        >
-                                            →
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </section>
-                ))}
-            </div>
-
-            {/* Bottom Banner */}
-            <section className="px-6 pb-20">
-                <div
-                    className="
-            max-w-[1600px]
-            mx-auto
-            rounded-[40px]
-            overflow-hidden
-            relative
-            h-[400px]
-          "
-                >
-                    <img
-                        src="https://images.unsplash.com/photo-1483985988355-763728e1935b"
-                        alt=""
-                        className="absolute inset-0 w-full h-full object-cover"
-                    />
-
-                    <div className="absolute inset-0 bg-black/60" />
-
-                    <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-                        <h2 className="text-5xl font-black">
-                            Wear The Future
-                        </h2>
-
-                        <p className="text-zinc-300 mt-4">
-                            Fashion that blends comfort, luxury and modern design.
-                        </p>
-
-                        <button className="mt-8 px-8 py-4 bg-white text-black rounded-full font-semibold">
-                            Shop Collection
-                        </button>
+                        ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Product Grids */}
+            <section className="max-w-[1600px] mx-auto px-6 md:px-12 py-16 space-y-24">
+                {categoriesToRender.map((catKey) => (
+                    <div key={catKey}>
+                        {/* Section Header (Only visible in 'All' view) */}
+                        {activeTab === "All" && (
+                            <div className="mb-10 flex items-center gap-4">
+                                <h2 className="text-xl md:text-2xl font-bold uppercase tracking-widest">{catKey}</h2>
+                                <div className="h-px bg-white/10 flex-1" />
+                            </div>
+                        )}
+                        
+                        {/* Masonry Layout for Full Images */}
+                        <motion.div 
+                            layout
+                            className="columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6"
+                        >
+                            <AnimatePresence mode="popLayout">
+                                {categories[catKey].map((imgSrc, index) => (
+                                    <motion.div
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.98 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.98 }}
+                                        transition={{ duration: 0.4 }}
+                                        key={`${catKey}-${index}`}
+                                        className="group relative cursor-pointer flex flex-col break-inside-avoid"
+                                    >
+                                        {/* Image Container */}
+                                        <div className="relative overflow-hidden bg-zinc-900 rounded-sm">
+                                            <img
+                                                src={imgSrc}
+                                                alt={`${catKey} product`}
+                                                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                                                loading="lazy"
+                                            />
+                                            
+                                            {/* Subtle Dark Overlay */}
+                                            <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
+                        </motion.div>
+                    </div>
+                ))}
+            </section>
+            
+            {/* Professional Footer Banner */}
+            <section className="border-t border-white/10 mt-12 py-24">
+                <div className="max-w-[1600px] mx-auto px-6 md:px-12 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        Explore The Lookbook
+                    </h2>
+                    <p className="text-zinc-400 max-w-lg mx-auto mb-10">
+                        View our manufacturing excellence and behind-the-scenes processes in our visual showcase.
+                    </p>
+                    <button className="inline-flex items-center gap-3 px-8 py-4 border border-white hover:bg-white hover:text-black transition-colors rounded-sm uppercase tracking-widest text-xs font-bold">
+                        View Gallery <ArrowRight className="w-4 h-4" />
+                    </button>
                 </div>
             </section>
         </div>
