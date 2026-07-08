@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -60,16 +61,12 @@ export default function Navbar() {
               className="flex items-center gap-3"
             >
               <div className="relative">
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#9E7A3B] to-[#C4A265] flex items-center justify-center shadow-xl shadow-[#9E7A3B]/20">
-                  <span className="text-white font-bold text-lg">
-                    H
-                  </span>
+                <div className="w-24 h-20 flex items-center justify-center">
+                  <img src={logo} alt="Logo" className="w-full h-full object-contain" />
                 </div>
-
-                <div className="absolute -inset-1 bg-[#C4A265]/20 blur-xl rounded-full" />
               </div>
 
-              <div className="hidden sm:flex flex-col leading-tight text-left">
+              {/* <div className="hidden sm:flex flex-col leading-tight text-left">
                 <span
                   className="font-display text-xl font-bold tracking-tight text-[#1A1410]"
                 >
@@ -81,7 +78,7 @@ export default function Navbar() {
                 >
                   Creation
                 </span>
-              </div>
+              </div> */}
             </motion.button>
 
             {/* DESKTOP NAV */}
