@@ -75,7 +75,7 @@ export default function HeroSection() {
             />
 
             {/* Elegant Glow */}
-            <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[#d4b06a]/10 blur-3xl" />
+            <div className="absolute left-[-10%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[#4da4cc]/10 blur-3xl" />
 
             <div className="absolute bottom-[-10%] right-[-10%] h-[500px] w-[500px] rounded-full bg-[#111827]/10 blur-3xl" />
 
@@ -114,7 +114,7 @@ export default function HeroSection() {
                             }}
                         >
                             Timeless
-                            <span className="block text-[#b68a3d]">
+                            <span className="block text-[#4da4cc]">
                                 Textile
                             </span>
                             Luxury
@@ -123,9 +123,9 @@ export default function HeroSection() {
 
                     {/* Elegant Line */}
                     <div className="mt-10 flex items-center gap-4">
-                        <div className="h-[1px] w-20 bg-[#b68a3d]" />
+                        <div className="h-[1px] w-20 bg-[#4da4cc]" />
 
-                        <div className="h-2 w-2 rounded-full bg-[#b68a3d]" />
+                        <div className="h-2 w-2 rounded-full bg-[#4da4cc]" />
                     </div>
 
                     {/* Paragraph */}
@@ -222,7 +222,7 @@ export default function HeroSection() {
                     }}
                 >
                     Designed
-                    <span className="block text-[#b68a3d]">
+                    <span className="block text-[#4da4cc]">
                         For Global
                     </span>
                     Markets

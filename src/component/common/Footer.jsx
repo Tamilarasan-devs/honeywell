@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, ArrowRight, Send, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import logo from "../../assets/logo.png";
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -32,8 +33,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1b5e7d] to-[#2596be] flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-xl">H</span>
+              <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm overflow-hidden p-1">
+                <img src={logo} alt="Honeywell Creation" className="w-full h-full object-contain" />
               </div>
               <div>
                 <span className="font-display font-bold text-xl text-[#1A1410]">Honeywell</span>
