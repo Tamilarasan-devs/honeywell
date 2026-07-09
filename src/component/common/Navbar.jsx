@@ -47,8 +47,8 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-            ? "bg-[#FAF9F6]/90 backdrop-blur-2xl border-b border-[#C4A265]/20 shadow-[0_8px_30px_rgba(158,122,59,0.05)]"
-            : "bg-[#FAF9F6]/40 backdrop-blur-md border-b border-[#C4A265]/10"
+            ? "bg-[#FAF9F6]/90 backdrop-blur-2xl border-b border-[#4da4cc]/20 shadow-[0_8px_30px_rgba(158,122,59,0.05)]"
+            : "bg-[#FAF9F6]/40 backdrop-blur-md border-b border-[#4da4cc]/10"
           }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -74,7 +74,7 @@ export default function Navbar() {
                 </span>
 
                 <span
-                  className="font-display text-sm tracking-[0.25em] uppercase text-[#9E7A3B]"
+                  className="font-display text-sm tracking-[0.25em] uppercase text-[#1b5e7d]"
                 >
                   Creation
                 </span>
@@ -85,7 +85,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               {/* NAVIGATION */}
               <div
-                className="flex items-center gap-1 px-2 py-2 rounded-2xl transition-all duration-300 bg-white/60 border border-[#C4A265]/15 backdrop-blur-md shadow-sm"
+                className="flex items-center gap-1 px-2 py-2 rounded-2xl transition-all duration-300 bg-white/60 border border-[#4da4cc]/15 backdrop-blur-md shadow-sm"
               >
                 {navItems.map((item) => {
                   const active =
@@ -98,8 +98,8 @@ export default function Navbar() {
                       whileTap={{ scale: 0.97 }}
                       onClick={() => handleNav(item.href)}
                       className={`relative px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${active
-                          ? "bg-[#C4A265]/12 text-[#9E7A3B]"
-                          : "text-[#4A3F35] hover:text-[#9E7A3B] hover:bg-[#C4A265]/05"
+                          ? "bg-[#4da4cc]/12 text-[#1b5e7d]"
+                          : "text-[#4A3F35] hover:text-[#1b5e7d] hover:bg-[#4da4cc]/05"
                         }`}
                     >
                       {item.label}
@@ -107,7 +107,7 @@ export default function Navbar() {
                       {active && (
                         <motion.div
                           layoutId="active-navbar"
-                          className="absolute inset-0 rounded-xl border border-[#C4A265]/35"
+                          className="absolute inset-0 rounded-xl border border-[#4da4cc]/35"
                           transition={{
                             type: "spring",
                             stiffness: 280,
@@ -125,7 +125,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => navigate("/contact")}
-                className="group relative overflow-hidden ml-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#9E7A3B] to-[#C4A265] text-white font-semibold shadow-xl shadow-[#9E7A3B]/20"
+                className="group relative overflow-hidden ml-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-[#1b5e7d] to-[#4da4cc] text-white font-semibold shadow-xl shadow-[#1b5e7d]/20"
               >
                 <span className="relative z-10 flex items-center gap-2 text-sm">
                   <Globe className="w-4 h-4" />
@@ -135,14 +135,14 @@ export default function Navbar() {
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
 
-                <div className="absolute inset-0 bg-gradient-to-r from-[#9E7A3B] to-[#C4A265] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e7d] to-[#4da4cc] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
             </div>
 
             {/* MOBILE MENU BUTTON */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2.5 rounded-xl transition-all bg-white/60 border border-[#C4A265]/15 backdrop-blur-md text-[#1A1410]"
+              className="lg:hidden p-2.5 rounded-xl transition-all bg-white/60 border border-[#4da4cc]/15 backdrop-blur-md text-[#1A1410]"
             >
               <Menu className="w-5 h-5" />
             </button>
@@ -173,20 +173,20 @@ export default function Navbar() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* TOP */}
-              <div className="flex items-center justify-between p-6 border-b border-[#C4A265]/10">
+              <div className="flex items-center justify-between p-6 border-b border-[#4da4cc]/10">
                 <div>
                   <h2 className="font-display text-xl font-bold text-[#1A1410]">
                     Honeywell
                   </h2>
 
-                  <p className="text-sm text-[#9E7A3B] tracking-widest uppercase">
+                  <p className="text-sm text-[#1b5e7d] tracking-widest uppercase">
                     Creation
                   </p>
                 </div>
 
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="p-2 rounded-xl hover:bg-[#C4A265]/05 transition-colors"
+                  className="p-2 rounded-xl hover:bg-[#4da4cc]/05 transition-colors"
                 >
                   <X className="w-5 h-5 text-[#4A3F35]" />
                 </button>
@@ -206,8 +206,8 @@ export default function Navbar() {
                       transition={{ delay: i * 0.05 }}
                       onClick={() => handleNav(item.href)}
                       className={`w-full flex items-center justify-between px-4 py-4 rounded-2xl text-left transition-all duration-300 ${active
-                          ? "bg-[#C4A265]/08 border border-[#C4A265]/20 text-[#9E7A3B]"
-                          : "text-[#4A3F35] hover:bg-[#C4A265]/05 hover:text-[#9E7A3B]"
+                          ? "bg-[#4da4cc]/08 border border-[#4da4cc]/20 text-[#1b5e7d]"
+                          : "text-[#4A3F35] hover:bg-[#4da4cc]/05 hover:text-[#1b5e7d]"
                         }`}
                     >
                       <span className="font-medium">
@@ -221,14 +221,14 @@ export default function Navbar() {
               </div>
 
               {/* BOTTOM CTA */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-[#C4A265]/10 bg-white">
+              <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-[#4da4cc]/10 bg-white">
                 <motion.button
                   whileTap={{ scale: 0.97 }}
                   onClick={() => {
                     setMobileOpen(false);
                     navigate("/contact");
                   }}
-                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#9E7A3B] to-[#C4A265] text-white font-semibold shadow-lg shadow-[#9E7A3B]/20"
+                  className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#1b5e7d] to-[#4da4cc] text-white font-semibold shadow-lg shadow-[#1b5e7d]/20"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Globe className="w-4 h-4" />

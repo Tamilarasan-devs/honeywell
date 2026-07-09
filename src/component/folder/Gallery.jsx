@@ -36,7 +36,7 @@ export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState(null);
 
     return (
-        <div className="min-h-screen bg-[#050505] text-white selection:bg-[#C4A265] selection:text-black">
+        <div className="min-h-screen bg-[#050505] text-white selection:bg-[#4da4cc] selection:text-black">
             {/* Header Section */}
             <section className="relative pt-32 pb-16 px-6 md:px-20 max-w-[1600px] mx-auto flex flex-col items-center text-center">
                 <motion.div 
@@ -45,8 +45,8 @@ export default function Gallery() {
                     transition={{ duration: 0.8 }}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
                 >
-                    <Sparkles className="w-4 h-4 text-[#C4A265]" />
-                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#C4A265]">
+                    <Sparkles className="w-4 h-4 text-[#4da4cc]" />
+                    <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#4da4cc]">
                         The Lookbook
                     </span>
                 </motion.div>
@@ -58,7 +58,7 @@ export default function Gallery() {
                     className="text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]"
                 >
                     Curated <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4A265] to-[#E8D099]">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4da4cc] to-[#E8D099]">
                         Elegance
                     </span>
                 </motion.h1>
@@ -115,7 +115,7 @@ export default function Gallery() {
                             
                             {/* Hover Content */}
                             <div className="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                                <p className="text-[#C4A265] text-[10px] uppercase tracking-[3px] font-bold mb-2">
+                                <p className="text-[#4da4cc] text-[10px] uppercase tracking-[3px] font-bold mb-2">
                                     Look #{String(index + 1).padStart(2, '0')}
                                 </p>
                                 <div className="flex items-center justify-between">

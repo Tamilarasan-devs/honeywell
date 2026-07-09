@@ -7,8 +7,8 @@ const CAPABILITIES = [
     description:
       "Operating with absolute respect for nature using organic pigments, responsible sourcing, and advanced water recycling systems.",
     icon: "✦",
-    accent: "#C9A66B",
-    image: "https://imgs.search.brave.com/xxbV0L4v5bgGZFYH2WZxVRoEhOjLmFgkxt709tgJy5c/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWNvbGFiZWwubmV0/L2ltYWdlcy9oYW5n/aS1lY28tbGFiZWwt/dXJ1bmxlcmluLW1l/dmN1dC1vbGR1Z3Ut/bmFzaWwtb2dyZW5p/bGlyLmpwZw",
+    accent: "#2596be",
+    image: "https://imgs.search.brave.com/GrD6cwM1B18zah029_y_7U1Cg7ubxduNaA6EP2OymgY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zM3Iu/Y2Evd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMTIvMjQtMTAw/MHg3NTAud2VicA",
   },
   {
     title: "Advanced CAD & Digital Fit",
@@ -70,7 +70,7 @@ export default function Capabilities() {
         />
       </div>
 
-      <div className="absolute left-0 top-0 h-[600px] w-[600px] rounded-full bg-[#C9A66B]/10 blur-[140px]" />
+      <div className="absolute left-0 top-0 h-[600px] w-[600px] rounded-full bg-[#2596be]/10 blur-[140px]" />
       <div className="absolute right-0 bottom-0 h-[600px] w-[600px] rounded-full bg-[#D9B4C5]/10 blur-[140px]" />
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -82,7 +82,7 @@ export default function Capabilities() {
               : "opacity-0 translate-y-10"
             }`}
         >
-          <p className="mb-5 text-xs uppercase tracking-[0.5em] text-[#C9A66B]">
+          <p className="mb-5 text-xs uppercase tracking-[0.5em] text-[#2596be]">
             Textile Excellence
           </p>
 
@@ -92,7 +92,7 @@ export default function Capabilities() {
             Modern Fashion
           </h2>
 
-          <div className="mx-auto my-8 h-px w-32 bg-gradient-to-r from-transparent via-[#C9A66B] to-transparent" />
+          <div className="mx-auto my-8 h-px w-32 bg-gradient-to-r from-transparent via-[#2596be] to-transparent" />
 
           <p className="mx-auto max-w-3xl text-base md:text-lg leading-8 text-[#6B6256] px-4 md:px-0">
             Combining sustainable craftsmanship, precision engineering and

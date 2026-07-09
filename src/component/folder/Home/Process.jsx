@@ -174,7 +174,7 @@ function HeroCard({ scroll }) {
                     fontFamily: "'Lato', sans-serif",
                     fontSize: "clamp(9px, 1.5vw, 11px)",
                     letterSpacing: "0.4em",
-                    color: "#C4A265",
+                    color: "#4da4cc",
                     textTransform: "uppercase",
                     marginBottom: "clamp(24px, 4vh, 40px)",
                     animation: "txFadeUp 1s ease 0.3s both",
@@ -193,7 +193,7 @@ function HeroCard({ scroll }) {
                     animation: "txFadeUp 1s ease 0.5s both",
                 }}>
                     From<br />
-                    <em style={{ color: "#C4A265", fontStyle: "italic" }}>Thread</em><br />
+                    <em style={{ color: "#4da4cc", fontStyle: "italic" }}>Thread</em><br />
                     to Garment
                 </h1>
 
@@ -219,7 +219,7 @@ function HeroCard({ scroll }) {
                     }}>Scroll</span>
                     <div style={{
                         width: "1px", height: "clamp(32px,5vh,52px)",
-                        background: "linear-gradient(to bottom, #C4A265, transparent)",
+                        background: "linear-gradient(to bottom, #4da4cc, transparent)",
                         animation: "txPulse 2.2s ease-in-out infinite",
                     }} />
                 </div>
@@ -436,7 +436,7 @@ function DotNav({ scroll, wrapperRef }) {
             gap: "9px",
         }}>
             {/* Hero dot */}
-            {[{ label: "hero", accent: "#C4A265" }, ...SECTIONS].map((s, i) => {
+            {[{ label: "hero", accent: "#4da4cc" }, ...SECTIONS].map((s, i) => {
                 const isActive = Math.abs(scroll - i) < 0.5;
                 return (
                     <button

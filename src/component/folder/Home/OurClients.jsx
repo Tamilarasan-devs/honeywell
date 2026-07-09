@@ -73,7 +73,7 @@ export default function OurClients() {
   }, []);
 
   return (
-    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#FAF8F5", minHeight: "100vh", overflow: "hidden" }}>
+    <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", background: "#eef7fa", minHeight: "100vh", overflow: "hidden" }}>
 
       {/* Google Fonts */}
       <style>{`
@@ -93,13 +93,13 @@ export default function OurClients() {
           font-family: 'Cinzel', serif;
           font-size: clamp(2.5rem, 5vw, 4rem);
           font-weight: 900;
-          background: linear-gradient(135deg, #A88028 0%, #D4A84B 50%, #8A641B 100%);
+          background: linear-gradient(135deg, #1b5e7d 0%, #D4A84B 50%, #8A641B 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
 
-        .gold-line {
+        .blue-line {
           width: 40px; height: 1px;
           background: linear-gradient(90deg, transparent, #B38A36, transparent);
           margin: 0 auto;
@@ -108,7 +108,7 @@ export default function OurClients() {
         .ticker-item {
           transition: color 0.3s;
         }
-        .ticker-item:hover { color: #A88028; }
+        .ticker-item:hover { color: #1b5e7d; }
 
         .img-panel {
           position: absolute; inset: 0;
@@ -120,7 +120,7 @@ export default function OurClients() {
           font-size: 9px;
           letter-spacing: 0.35em;
           text-transform: uppercase;
-          color: #A88028;
+          color: #1b5e7d;
         }
 
         .section-eyebrow {
@@ -128,7 +128,7 @@ export default function OurClients() {
           font-size: 10px;
           letter-spacing: 0.6em;
           text-transform: uppercase;
-          color: #A88028;
+          color: #1b5e7d;
         }
 
         .client-name-lg {
@@ -140,7 +140,7 @@ export default function OurClients() {
           transition: color 0.3s;
         }
 
-        .client-row:hover .client-name-lg { color: #A88028; }
+        .client-row:hover .client-name-lg { color: #1b5e7d; }
 
         .client-country {
           font-family: 'Didact Gothic', sans-serif;
@@ -200,7 +200,7 @@ export default function OurClients() {
         {/* Image counter right */}
         <div style={{ position: "absolute", right: 32, top: "50%", transform: "translateY(-50%)", zIndex: 10, textAlign: "center" }}>
           {heroImages.map((_, i) => (
-            <div key={i} onClick={() => setImgIdx(i)} style={{ width: 1, height: i === imgIdx ? 40 : 20, background: i === imgIdx ? "#A88028" : "rgba(44,38,33,0.2)", margin: "6px auto", cursor: "pointer", transition: "all 0.4s" }} />
+            <div key={i} onClick={() => setImgIdx(i)} style={{ width: 1, height: i === imgIdx ? 40 : 20, background: i === imgIdx ? "#1b5e7d" : "rgba(44,38,33,0.2)", margin: "6px auto", cursor: "pointer", transition: "all 0.4s" }} />
           ))}
         </div>
 
@@ -223,7 +223,7 @@ export default function OurClients() {
               fontStyle: "italic",
               fontWeight: 300,
               fontSize: "clamp(2rem, 5vw, 5rem)",
-              background: "linear-gradient(135deg, #A88028, #D4A84B, #8A641B)",
+              background: "linear-gradient(135deg, #1b5e7d, #D4A84B, #8A641B)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text"
@@ -231,7 +231,7 @@ export default function OurClients() {
           </h1>
 
           <div style={{ marginTop: "2rem", display: "flex", alignItems: "center", gap: "1.5rem", animation: "fadeIn 1s ease 0.5s both" }}>
-            <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #A88028, transparent)" }} />
+            <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #1b5e7d, transparent)" }} />
             <p style={{ fontFamily: "'Didact Gothic', sans-serif", fontSize: 13, letterSpacing: "0.2em", color: "rgba(44,38,33,0.6)", margin: 0, textTransform: "uppercase" }}>
               Scroll to explore
             </p>
@@ -247,7 +247,7 @@ export default function OurClients() {
       </section>
 
       {/* ── STATS ── */}
-      <section style={{ background: "#FAF8F5", padding: "6rem clamp(2rem, 8vw, 8rem)" }}>
+      <section style={{ background: "#eef7fa", padding: "6rem clamp(2rem, 8vw, 8rem)" }}>
         <div ref={statsRef} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "3rem" }}>
           {[
             { val: "25+", label: "Years Experience" },
@@ -257,7 +257,7 @@ export default function OurClients() {
           ].map((s, i) => (
             <div key={s.label} className={`reveal-up stagger-${i + 1} ${statsVisible ? "visible" : ""}`} style={{ textAlign: "center" }}>
               <div className="stat-val">{s.val}</div>
-              <div className="gold-line" style={{ margin: "1rem auto" }} />
+              <div className="blue-line" style={{ margin: "1rem auto" }} />
               <p className="section-eyebrow" style={{ margin: 0 }}>{s.label}</p>
             </div>
           ))}
@@ -269,7 +269,7 @@ export default function OurClients() {
         <div ref={marqueeRef} className="ticker-hide" style={{ overflowX: "auto", whiteSpace: "nowrap" }}>
           <div style={{ display: "inline-flex", gap: "3rem", padding: "0 2rem" }}>
             {[...clients, ...clients, ...clients].map((c, i) => (
-              <span key={i} style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.3em", color: "#FAF8F5", textTransform: "uppercase" }}>
+              <span key={i} style={{ fontFamily: "'Cinzel', serif", fontSize: 11, letterSpacing: "0.3em", color: "#eef7fa", textTransform: "uppercase" }}>
                 {c.name} <span style={{ opacity: 0.5 }}>·</span>
               </span>
             ))}
@@ -309,7 +309,7 @@ export default function OurClients() {
       </section>
 
       {/* ── CLIENT LIST ── */}
-      <section style={{ background: "#FAF8F5", padding: "6rem clamp(2rem, 8vw, 8rem)" }}>
+      <section style={{ background: "#eef7fa", padding: "6rem clamp(2rem, 8vw, 8rem)" }}>
 
         <div ref={headerRef} className={`reveal-up ${headerVisible ? "visible" : ""}`} style={{ marginBottom: "4rem" }}>
           <p className="section-eyebrow" style={{ marginBottom: "1.5rem" }}>Our Partners</p>
@@ -321,7 +321,7 @@ export default function OurClients() {
             margin: 0,
             letterSpacing: "0.04em"
           }}>Global Clients</h2>
-          <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #A88028, transparent)", marginTop: "1.5rem" }} />
+          <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, #1b5e7d, transparent)", marginTop: "1.5rem" }} />
         </div>
 
         <div ref={listRef}>
@@ -352,7 +352,7 @@ export default function OurClients() {
 
               {/* Year */}
               <div style={{ textAlign: "right" }}>
-                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2.5vw, 2rem)", color: "#A88028", fontWeight: 300 }}>
+                <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "clamp(1.2rem, 2.5vw, 2rem)", color: "#1b5e7d", fontWeight: 300 }}>
                   {client.since}
                 </span>
               </div>
@@ -370,11 +370,11 @@ export default function OurClients() {
         />
         <div style={{ position: "absolute", inset: 0, background: "rgba(250,248,245,0.85)" }} />
         <div style={{ position: "relative", zIndex: 10, textAlign: "center", padding: "4rem clamp(2rem, 8vw, 8rem)" }}>
-          <div className="gold-line" style={{ marginBottom: "2rem" }} />
+          <div className="blue-line" style={{ marginBottom: "2rem" }} />
           <p className="font-bold" style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontWeight: 300, fontSize: "clamp(1.2rem, 3vw, 2rem)", color: "rgba(44,38,33,0.9)", lineHeight: 1.8, maxWidth: 700, margin: "0 auto", }}>
             Built on trust, strengthened through quality, and sustained by long-term partnerships across global markets.
           </p>
-          <div className="gold-line" style={{ marginTop: "2rem" }} />
+          <div className="blue-line" style={{ marginTop: "2rem" }} />
         </div>
       </section>
 

@@ -29,16 +29,16 @@
   --color-navy-800: #091f4a;
   --color-navy-900: #06112b;
 
-  --color-gold-50: #fdf8ed;
-  --color-gold-100: #f9edcc;
-  --color-gold-200: #f2db99;
-  --color-gold-300: #ecc966;
-  --color-gold-400: #e5b733;
-  --color-gold-500: #c5a55a;
-  --color-gold-600: #a8883e;
-  --color-gold-700: #8a6a2e;
-  --color-gold-800: #6c4e1e;
-  --color-gold-900: #4e3212;
+  --color-blue-50: #eef7fa;
+  --color-blue-100: #d8ebf3;
+  --color-blue-200: #b6dbea;
+  --color-blue-300: #85c3dd;
+  --color-blue-400: #4da4cc;
+  --color-blue-500: #2596be;
+  --color-blue-600: #20769b;
+  --color-blue-700: #1b5e7d;
+  --color-blue-800: #174e67;
+  --color-blue-900: #164256;
 
   --color-copper-50: #fdf5ef;
   --color-copper-100: #f9e3d0;
@@ -112,7 +112,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c5a55a;
+  background: #2596be;
   border-radius: 4px;
 }
 
@@ -156,7 +156,7 @@ body {
 .animate-marquee-reverse { animation: marquee-reverse 30s linear infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 
-.text-gradient-gold { background: linear-gradient(135deg, #c5a55a 0%, #ecc966 40%, #c5a55a 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.text-gradient-blue { background: linear-gradient(135deg, #2596be 0%, #85c3dd 40%, #2596be 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .text-gradient-navy { background: linear-gradient(135deg, #0d2d6e 0%, #1a4da4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .text-gradient-emerald { background: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
@@ -167,7 +167,7 @@ body {
 .premium-shadow-lg { box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); }
 .premium-shadow-xl { box-shadow: 0 16px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06); }
 
-.gold-border { border-image: linear-gradient(135deg, #c5a55a, #ecc966, #c5a55a) 1; }
+.blue-border { border-image: linear-gradient(135deg, #2596be, #85c3dd, #2596be) 1; }
 
 .p-u { padding: var(--spacing-unit); }
 .pt-u { padding-top: var(--spacing-unit); }

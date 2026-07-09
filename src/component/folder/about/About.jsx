@@ -64,8 +64,8 @@ export default function About() {
           pointer-events: none;
         }
 
-        .gold-gradient {
-          background: linear-gradient(90deg, #9E7A3B 0%, #C4A265 50%, #9E7A3B 100%);
+        .blue-gradient {
+          background: linear-gradient(90deg, #1b5e7d 0%, #4da4cc 50%, #1b5e7d 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -80,7 +80,7 @@ export default function About() {
         }
         .editorial-narrative-block:hover {
           padding-left: 20px;
-          border-top-color: #C4A265;
+          border-top-color: #4da4cc;
         }
 
         .giant-index-num {
@@ -92,13 +92,13 @@ export default function About() {
           transition: all 0.4s ease;
         }
         .editorial-narrative-block:hover .giant-index-num {
-          color: #C4A265;
+          color: #4da4cc;
           transform: scale(1.1);
         }
 
         .fashion-accent-dot {
           width: 8px; height: 8px;
-          background: #C4A265;
+          background: #4da4cc;
           border-radius: 50%;
           display: inline-block;
           margin-right: 12px;
@@ -124,7 +124,7 @@ export default function About() {
           font-size: 10px;
           font-weight: 600;
           letter-spacing: 0.35em;
-          color: #9E7A3B;
+          color: #1b5e7d;
           border: 1px solid rgba(196, 162, 101, 0.3);
           padding: 6px 20px;
           display: inline-block;
@@ -136,7 +136,7 @@ export default function About() {
           font-size: 11px;
           letter-spacing: 0.4em;
           text-transform: uppercase;
-          color: #9E7A3B;
+          color: #1b5e7d;
           font-weight: 700;
         }
       `}</style>
@@ -157,7 +157,7 @@ export default function About() {
           <div className="absolute top-12 right-8 md:right-24 hidden md:block w-28 h-28 pointer-events-none">
             <svg className="luxury-rotating-seal w-full h-full" viewBox="0 0 100 100">
               <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-              <text className="outfit-font fill-[#9E7A3B] text-[7.5px] font-bold tracking-[0.25em] uppercase">
+              <text className="outfit-font fill-[#1b5e7d] text-[7.5px] font-bold tracking-[0.25em] uppercase">
                 <textPath href="#circlePath">
                   · HONEYWELL CREATION · SINCE 2007 · TIRUPUR ·
                 </textPath>
@@ -167,7 +167,7 @@ export default function About() {
         </section> */}
 
         {/* ── FASHION ROW METRICS WITH CONTINUOUS TOP/BOTTOM BORDERS ── */}
-        <section className={`px-6 py-12 border-t border-b border-[#C4A265]/25 bg-white/30 backdrop-blur-sm fade-up-element d-3 ${visible ? "triggered" : ""}`}>
+        <section className={`px-6 py-12 border-t border-b border-[#4da4cc]/25 bg-white/30 backdrop-blur-sm fade-up-element d-3 ${visible ? "triggered" : ""}`}>
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { num: "1,800+", label: "Advanced Japanese Sewing Frames" },
@@ -176,7 +176,7 @@ export default function About() {
               { num: "Lean", label: "Zero-Waste Operational Standards" },
             ].map((s, i) => (
               <div key={i} className="text-center md:text-left">
-                <p className="gold-gradient font-serif text-4xl md:text-5xl font-light leading-none mb-2">
+                <p className="blue-gradient font-serif text-4xl md:text-5xl font-light leading-none mb-2">
                   {s.num}
                 </p>
                 <p className="outfit-font text-[#7A6B5A] text-[10px] font-bold tracking-widest uppercase leading-normal">
@@ -203,7 +203,7 @@ export default function About() {
                 style={{ fontSize: "clamp(48px, 8vw, 84px)" }}
               >
                 From 40 Machines<br />
-                <span className="gold-gradient" style={{ fontStyle: "italic" }}>to an Industry Icon</span>
+                <span className="blue-gradient" style={{ fontStyle: "italic" }}>to an Industry Icon</span>
               </h2>
 
               <p className="font-serif text-[#3A332C] italic leading-[1.8]" style={{ fontSize: "clamp(20px, 2.4vw, 26px)" }}>
@@ -273,8 +273,8 @@ export default function About() {
                 desc: "1,800+ automatic systems running on lean digital control layers, targeting 100% green energy powered operations.",
               },
             ].map((m, i) => (
-              <div key={i} className="space-y-4 pt-8 border-t border-[#C4A265]/40 hover:border-[#C4A265] transition-colors duration-500">
-                <span className="editorial-title text-[#C4A265] text-5xl md:text-6xl font-light italic leading-none">{m.year}</span>
+              <div key={i} className="space-y-4 pt-8 border-t border-[#4da4cc]/40 hover:border-[#4da4cc] transition-colors duration-500">
+                <span className="editorial-title text-[#4da4cc] text-5xl md:text-6xl font-light italic leading-none">{m.year}</span>
                 <h3 className="outfit-font text-[#1A1410] font-bold text-lg mt-2">{m.title}</h3>
                 <p className="outfit-font text-[#7A6B5A] text-lg font-medium leading-relaxed">{m.desc}</p>
               </div>
@@ -306,11 +306,11 @@ export default function About() {
               style={{ fontSize: "clamp(48px, 8vw, 84px)" }}
             >
               Crafted with{" "}
-              <span className="gold-gradient" style={{ fontStyle: "italic" }}>Precision.</span>
+              <span className="blue-gradient" style={{ fontStyle: "italic" }}>Precision.</span>
               <br />
-              Delivered with <span className="gold-gradient" style={{ fontStyle: "italic" }}>Pride.</span>
+              Delivered with <span className="blue-gradient" style={{ fontStyle: "italic" }}>Pride.</span>
             </h2>
-            <div className="w-16 h-[2px] bg-[#C4A265] mx-auto mb-8" />
+            <div className="w-16 h-[2px] bg-[#4da4cc] mx-auto mb-8" />
             <p className="outfit-font text-[#7A6B5A] text-xs font-bold tracking-[0.35em] uppercase">
               Tirupur · Tamil Nadu · India
             </p>

@@ -15,18 +15,18 @@ const certs = [
 
 export default function ManagementTeam() {
     return (
-        <section className="relative py-20 bg-[#FAF8F5] overflow-hidden">
+        <section className="relative py-20 bg-[#eef7fa] overflow-hidden">
 
-            {/* soft gold glow background */}
+            {/* soft blue glow background */}
             <div className="absolute inset-0 opacity-50 pointer-events-none">
-                <div className="absolute -top-32 left-1/2 w-[600px] h-[600px] -translate-x-1/2 bg-[#C9A66B]/10 blur-[130px] rounded-full" />
+                <div className="absolute -top-32 left-1/2 w-[600px] h-[600px] -translate-x-1/2 bg-[#2596be]/10 blur-[130px] rounded-full" />
             </div>
 
             {/* header */}
             <div className="relative max-w-6xl mx-auto px-6 mb-16 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5F2EB] border border-[#C9A66B]/20 shadow-sm">
-                    <FaAward className="text-[#A88028] text-sm" />
-                    <span className="text-[10px] tracking-[0.35em] uppercase font-medium text-[#A88028]">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d8ebf3] border border-[#2596be]/20 shadow-sm">
+                    <FaAward className="text-[#1b5e7d] text-sm" />
+                    <span className="text-[10px] tracking-[0.35em] uppercase font-medium text-[#1b5e7d]">
                         Global Compliance & Certifications
                     </span>
                 </div>
@@ -35,7 +35,7 @@ export default function ManagementTeam() {
                     Trusted International Standards
                 </h2>
 
-                <div className="my-5 h-px w-24 bg-gradient-to-r from-[#A88028] to-transparent mx-auto md:mx-0" />
+                <div className="my-5 h-px w-24 bg-gradient-to-r from-[#1b5e7d] to-transparent mx-auto md:mx-0" />
 
                 <p className="text-sm md:text-base text-[#6B6256] max-w-2xl leading-relaxed">
                     Our certifications reflect a long-term commitment to ethical production,
@@ -47,8 +47,8 @@ export default function ManagementTeam() {
             <div className="relative overflow-hidden py-4">
 
                 {/* edge fade */}
-                <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 md:w-56 bg-gradient-to-r from-[#FAF8F5] to-transparent z-10" />
-                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 md:w-56 bg-gradient-to-l from-[#FAF8F5] to-transparent z-10" />
+                <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 md:w-56 bg-gradient-to-r from-[#eef7fa] to-transparent z-10" />
+                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 md:w-56 bg-gradient-to-l from-[#eef7fa] to-transparent z-10" />
 
                 <div className="flex items-center gap-10 w-max animate-[marquee_35s_linear_infinite] hover:[animation-play-state:paused]">
 
@@ -56,12 +56,12 @@ export default function ManagementTeam() {
                         <div
                             key={i}
                             className="group relative flex items-center gap-4 px-6 py-4 rounded-2xl
-                         bg-[#F5F2EB]/50 backdrop-blur-sm border border-[#C9A66B]/15
+                         bg-[#d8ebf3]/50 backdrop-blur-sm border border-[#2596be]/15
                          shadow-sm hover:shadow-[0_12px_30px_rgba(168,128,40,0.08)] 
-                         transition-all duration-500 hover:-translate-y-1 hover:border-[#A88028]/45"
+                         transition-all duration-500 hover:-translate-y-1 hover:border-[#1b5e7d]/45"
                         >
                             {/* logo container */}
-                            <div className="relative w-16 h-16 flex items-center justify-center rounded-xl bg-white border border-[#C9A66B]/10 shadow-sm">
+                            <div className="relative w-16 h-16 flex items-center justify-center rounded-xl bg-white border border-[#2596be]/10 shadow-sm">
                                 <img
                                     src={cert.img}
                                     alt={cert.name}
@@ -74,14 +74,14 @@ export default function ManagementTeam() {
                                 <span className="text-sm font-bold text-[#1A1410] tracking-wide">
                                     {cert.name}
                                 </span>
-                                <span className="text-[11px] text-[#8A7D6E] mt-1 font-medium">
+                                <span className="text-[11px] text-[#4da4cc] mt-1 font-medium">
                                     {cert.year}
                                 </span>
                             </div>
 
                             {/* subtle glow on hover */}
                             <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500
-                              bg-gradient-to-r from-[#C9A66B]/5 to-transparent pointer-events-none" />
+                              bg-gradient-to-r from-[#2596be]/5 to-transparent pointer-events-none" />
                         </div>
                     ))}
 
