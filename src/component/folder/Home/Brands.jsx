@@ -106,16 +106,16 @@ export default function Brands() {
 
       .logo {
         flex-shrink: 0;
-        width: 170px;
-        height: 100px;
+        width: 200px;
+        height: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
       .logo img {
-        width: 130px;
-        height: 80px;
+        width: 160px;
+        height: 100px;
         object-fit: contain;
         transition: transform .3s ease;
       }
